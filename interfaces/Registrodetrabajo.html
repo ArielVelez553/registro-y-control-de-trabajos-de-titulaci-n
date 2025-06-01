@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Trabajo - Sistema de Registro y Control de Trabajos de Titulación</title>
+    <link rel="stylesheet" href="../css/Registrodetrabajo.css">
+</head>
+<body>
+    <!-- Barra superior -->
+    <header class="top-header">
+        <div class="container header-container">
+            <div class="window-controls">
+                <div class="circle red"></div>
+                <div class="circle yellow"></div>
+                <div class="circle green"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-logo">
+                <img src="../Imagenes/Logouleam.png" alt="ULEAM Logo">
+                <div class="nav-logo-text">
+                    <span class="university-name">Uleam</span>
+                    <span class="university-fullname">ELOY ALFARO DE MANABÍ</span>
+                </div>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="#" class="nav-link">Inicio</a>
+                <a href="#" class="nav-link">Selección de Tema</a>
+                <a href="#" class="nav-link active">Registrar Trabajo</a>
+                <a href="#" class="nav-link">Avances</a>
+                <a href="#" class="nav-link logout">Cerrar Sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Información del proyecto -->
+            <div class="project-header">
+                <div class="project-info">
+                    <h1 class="project-title">Sistema de gestión hospitalaria con inteligencia artificial</h1>
+                    <div class="project-meta">
+                        <span class="meta-item">
+                            <strong>Estudiante:</strong> María González Pérez
+                        </span>
+                        <span class="meta-item">
+                            <strong>Tutor:</strong> Dr. Carlos Mendoza
+                        </span>
+                        <span class="meta-item">
+                            <strong>Carrera:</strong> Ingeniería en Sistemas
+                        </span>
+                    </div>
+                </div>
+                <div class="project-status">
+                    <span class="status-badge in-progress">En Desarrollo</span>
+                </div>
+            </div>
+
+            <!-- Sección de subida de documentos -->
+            <div class="upload-section">
+                <h2 class="section-title">
+                    <span class="section-icon">📤</span>
+                    Subir Nuevo Avance
+                </h2>
+                
+                <form class="upload-form" id="uploadForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="document-type">Tipo de Entrega</label>
+                            <select id="document-type" name="document-type" required>
+                                <option value="">Selecciona el tipo</option>
+                                <option value="propuesta">Propuesta Inicial</option>
+                                <option value="marco-teorico">Marco Teórico</option>
+                                <option value="metodologia">Metodología</option>
+                                <option value="desarrollo">Desarrollo/Implementación</option>
+                                <option value="resultados">Resultados y Análisis</option>
+                                <option value="conclusiones">Conclusiones</option>
+                                <option value="documento-final">Documento Final</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="version">Versión del Documento</label>
+                            <input type="text" id="version" name="version" placeholder="ej: v1.0, v2.1" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">Descripción del Avance</label>
+                        <textarea id="description" name="description" rows="4" placeholder="Describe los cambios, mejoras o nuevo contenido incluido en esta entrega..." required></textarea>
+                    </div>
+                    
+                    <div class="file-upload-container">
+                        <input type="file" id="document-file" name="document-file" accept=".pdf,.doc,.docx" hidden>
+                        <div class="upload-area" onclick="document.getElementById('document-file').click()">
+                            <div class="upload-content">
+                                <div class="upload-icon">📁</div>
+                                <p class="upload-text">Arrastra tu archivo aquí o haz clic para seleccionar</p>
+                                <p class="upload-subtext">Formatos permitidos: PDF, DOC, DOCX (máx. 15MB)</p>
+                            </div>
+                        </div>
+                        <div class="file-preview" id="filePreview" style="display: none;">
+                            <div class="file-info">
+                                <span class="file-icon">📄</span>
+                                <div class="file-details">
+                                    <span class="file-name" id="fileName"></span>
+                                    <span class="file-size" id="fileSize"></span>
+                                </div>
+                                <button type="button" class="remove-file" onclick="removeFile()">✕</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-icon">⬆️</span>
+                        Enviar Documento para Revisión
+                    </button>
+                </form>
+            </div>
+
+            <!-- Documentos pendientes de revisión -->
+            <div class="pending-review-section">
+                <h2 class="section-title">
+                    <span class="section-icon">⏳</span>
+                    Documentos en Revisión
+                </h2>
+                
+                <div class="documents-grid">
+                    <div class="document-card pending">
+                        <div class="document-header">
+                            <div class="document-type">Marco Teórico</div>
+                            <div class="document-status">Pendiente</div>
+                        </div>
+                        <div class="document-info">
+                            <h3>Marco Teórico - Segunda Versión</h3>
+                            <p class="document-meta">v2.0 • Subido el 28/05/2025 • 3.2 MB</p>
+                            <p class="document-description">Versión corregida con nuevas referencias bibliográficas y ampliación de la sección sobre IA en salud.</p>
+                        </div>
+                        <div class="document-actions">
+                            <button class="action-btn view">👁️ Ver</button>
+                            <button class="action-btn download">⬇️ Descargar</button>
+                        </div>
+                    </div>
+                    
+                    <div class="document-card reviewing">
+                        <div class="document-header">
+                            <div class="document-type">Metodología</div>
+                            <div class="document-status">En Revisión</div>
+                        </div>
+                        <div class="document-info">
+                            <h3>Metodología de Desarrollo</h3>
+                            <p class="document-meta">v1.0 • Subido el 25/05/2025 • 2.8 MB</p>
+                            <p class="document-description">Metodología completa con enfoque en desarrollo ágil y técnicas de machine learning.</p>
+                        </div>
+                        <div class="document-actions">
+                            <button class="action-btn view">👁️ Ver</button>
+                            <button class="action-btn download">⬇️ Descargar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de calificación del profesor (solo visible para profesores) -->
+            <div class="professor-section" id="professorSection">
+                <h2 class="section-title professor-title">
+                    <span class="section-icon">👨‍🏫</span>
+                    Panel de Evaluación - Profesor
+                </h2>
+                
+                <div class="evaluation-container">
+                    <div class="document-to-evaluate">
+                        <h3>Documento a Evaluar</h3>
+                        <div class="eval-document-card" id="selectedDocumentCard">
+                            <div class="eval-document-info">
+                                <h4 id="selectedDocumentTitle">Seleccione un documento para evaluar</h4>
+                                <p id="selectedStudentName">-</p>
+                                <p id="selectedDocumentDate">-</p>
+                                <p id="selectedDocumentType">-</p>
+                            </div>
+                            <div class="eval-document-actions">
+                                <button class="eval-btn view" id="reviewDocumentBtn" onclick="openDocumentSelector()">📖 Revisar Documento</button>
+                                <button class="eval-btn download" id="downloadDocumentBtn" disabled>⬇️ Descargar</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="evaluation-form">
+                        <h3>Evaluación y Calificación</h3>
+                        <form class="grading-form" id="gradingForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="grade">Calificación (0-10)</label>
+                                    <input type="number" id="grade" name="grade" min="0" max="10" step="0.1" placeholder="8.5">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="status">Estado de Evaluación</label>
+                                    <select id="status" name="status" required>
+                                        <option value="">Seleccionar estado</option>
+                                        <option value="aprobado">Aprobado</option>
+                                        <option value="aprobado-observaciones">Aprobado con Observaciones</option>
+                                        <option value="requiere-correccion">Requiere Corrección</option>
+                                        <option value="rechazado">Rechazado</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="feedback">Comentarios y Retroalimentación</label>
+                                <textarea id="feedback" name="feedback" rows="6" placeholder="Proporciona comentarios detallados sobre el trabajo, sugerencias de mejora, fortalezas identificadas, etc." required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="recommendations">Recomendaciones para Próxima Entrega</label>
+                                <textarea id="recommendations" name="recommendations" rows="4" placeholder="Indica qué aspectos debe trabajar el estudiante para la siguiente entrega..."></textarea>
+                            </div>
+                            
+                            <div class="evaluation-actions">
+                                <button type="button" class="eval-action-btn secondary">💾 Guardar Borrador</button>
+                                <button type="submit" class="eval-action-btn primary">✅ Enviar Evaluación</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Historial de evaluaciones recientes -->
+            <div class="recent-evaluations">
+                <h2 class="section-title">
+                    <span class="section-icon">📋</span>
+                    Evaluaciones Recientes
+                </h2>
+                
+                <div class="evaluations-list">
+                    <div class="evaluation-item approved">
+                        <div class="eval-header">
+                            <div class="eval-document">Propuesta Inicial</div>
+                            <div class="eval-grade">9.0</div>
+                            <div class="eval-status">Aprobado</div>
+                            <div class="eval-date">20/05/2025</div>
+                        </div>
+                        <div class="eval-feedback">
+                            <p><strong>Comentarios:</strong> Excelente propuesta con objetivos claros y metodología bien definida. La justificación del proyecto es sólida.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="evaluation-item corrections">
+                        <div class="eval-header">
+                            <div class="eval-document">Marco Teórico - Primera Versión</div>
+                            <div class="eval-grade">7.5</div>
+                            <div class="eval-status">Requiere Corrección</div>
+                            <div class="eval-date">15/05/2025</div>
+                        </div>
+                        <div class="eval-feedback">
+                            <p><strong>Comentarios:</strong> Buen trabajo inicial, pero necesita ampliar las referencias sobre IA en el sector salud. Revisar formato APA en las citas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal para seleccionar documento -->
+    <div class="modal-overlay" id="documentSelectorModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Seleccionar Documento para Evaluar</h2>
+                <button class="modal-close" onclick="closeDocumentSelector()">✕</button>
+            </div>
+            
+            <div class="modal-content">
+                <!-- Filtros de búsqueda -->
+                <div class="search-filters">
+                    <div class="search-box">
+                        <input type="text" id="studentSearch" placeholder="Buscar por nombre de estudiante..." class="search-input">
+                        <button class="search-btn">🔍</button>
+                    </div>
+                    <div class="filter-options">
+                        <select id="careerFilter" class="filter-select">
+                            <option value="">Todas las carreras</option>
+                            <option value="sistemas">Ing. Sistemas</option>
+                            <option value="ti">Ing. TI</option>
+                            <option value="software">Ing. Software</option>
+                            <option value="redes">Ing. Redes</option>
+                            <option value="ciberseguridad">Ing. Ciberseguridad</option>
+                        </select>
+                        <select id="statusFilter" class="filter-select">
+                            <option value="">Todos los estados</option>
+                            <option value="pendiente">Pendiente</option>
+                            <option value="revision">En Revisión</option>
+                        </select>
+                        <select id="documentTypeFilter" class="filter-select">
+                            <option value="">Todos los tipos</option>
+                            <option value="propuesta">Propuesta</option>
+                            <option value="marco-teorico">Marco Teórico</option>
+                            <option value="metodologia">Metodología</option>
+                            <option value="desarrollo">Desarrollo</option>
+                            <option value="resultados">Resultados</option>
+                            <option value="conclusiones">Conclusiones</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Lista de documentos -->
+                <div class="documents-list">
+                    <div class="document-item" data-student="María González Pérez" data-career="sistemas" data-status="pendiente" data-type="marco-teorico">
+                        <div class="document-item-header">
+                            <div class="student-info">
+                                <h4>María González Pérez</h4>
+                                <span class="career-badge">Ing. Sistemas</span>
+                            </div>
+                            <div class="document-status-badge pendiente">Pendiente</div>
+                        </div>
+                        <div class="document-item-content">
+                            <h5>Marco Teórico - Segunda Versión</h5>
+                            <p class="document-details">v2.0 • Subido el 28/05/2025 • 3.2 MB</p>
+                            <p class="document-preview">Sistema de gestión hospitalaria con inteligencia artificial - Versión corregida con nuevas referencias...</p>
+                        </div>
+                        <div class="document-item-actions">
+                            <button class="select-document-btn" onclick="selectDocument('María González Pérez', 'Marco Teórico - Segunda Versión', '28/05/2025', 'Marco Teórico • v2.0')">
+                                Seleccionar
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="document-item" data-student="Juan Carlos Rodríguez" data-career="redes" data-status="revision" data-type="metodologia">
+                        <div class="document-item-header">
+                            <div class="student-info">
+                                <h4>Juan Carlos Rodríguez</h4>
+                                <span class="career-badge">Ing. Redes</span>
+                            </div>
+                            <div class="document-status-badge revision">En Revisión</div>
+                        </div>
+                        <div class="document-item-content">
+                            <h5>Metodología de Desarrollo IoT</h5>
+                            <p class="document-details">v1.0 • Subido el 25/05/2025 • 2.8 MB</p>
+                            <p class="document-preview">Aplicación móvil para monitoreo de redes IoT - Metodología completa con enfoque en desarrollo ágil...</p>
+                        </div>
+                        <div class="document-item-actions">
+                            <button class="select-document-btn" onclick="selectDocument('Juan Carlos Rodríguez', 'Metodología de Desarrollo IoT', '25/05/2025', 'Metodología • v1.0')">
+                                Seleccionar
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="document-item" data-student="Ana Sofía Martínez" data-career="software" data-status="pendiente" data-type="propuesta">
+                        <div class="document-item-header">
+                            <div class="student-info">
+                                <h4>Ana Sofía Martínez</h4>
+                                <span class="career-badge">Ing. Software</span>
+                            </div>
+                            <div class="document-status-badge pendiente">Pendiente</div>
+                        </div>
+                        <div class="document-item-content">
+                            <h5>Propuesta de Plataforma E-Learning VR</h5>
+                            <p class="document-details">v1.0 • Subido el 22/05/2025 • 4.1 MB</p>
+                            <p class="document-preview">Plataforma web de e-learning con realidad virtual - Propuesta inicial con objetivos y alcance...</p>
+                        </div>
+                        <div class="document-item-actions">
+                            <button class="select-document-btn" onclick="selectDocument('Ana Sofía Martínez', 'Propuesta de Plataforma E-Learning VR', '22/05/2025', 'Propuesta • v1.0')">
+                                Seleccionar
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="document-item" data-student="Roberto Andrés Silva" data-career="ciberseguridad" data-status="revision" data-type="desarrollo">
+                        <div class="document-item-header">
+                            <div class="student-info">
+                                <h4>Roberto Andrés Silva</h4>
+                                <span class="career-badge">Ing. Ciberseguridad</span>
+                            </div>
+                            <div class="document-status-badge revision">En Revisión</div>
+                        </div>
+                        <div class="document-item-content">
+                            <h5>Desarrollo del Sistema de Ciberseguridad</h5>
+                            <p class="document-details">v2.1 • Subido el 20/05/2025 • 5.7 MB</p>
+                            <p class="document-preview">Sistema de ciberseguridad para empresas PYMES - Implementación de módulos de detección...</p>
+                        </div>
+                        <div class="document-item-actions">
+                            <button class="select-document-btn" onclick="selectDocument('Roberto Andrés Silva', 'Desarrollo del Sistema de Ciberseguridad', '20/05/2025', 'Desarrollo • v2.1')">
+                                Seleccionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">Universidad Laica Eloy Alfaro de Manabí</p>
+            <p class="copyright">© 2025 - Todos los derechos reservados</p>
+        </div>
+    </footer>
+    <script src="../js/navegacion.js"></script>   
+    <script>
+        // Simulación de rol de usuario (cambiar según el usuario logueado)
+        const userRole = 'professor'; // 'student' o 'professor'
+        
+        // Mostrar/ocultar sección de profesor según el rol
+        if (userRole === 'professor') {
+            document.getElementById('professorSection').style.display = 'block';
+        } else {
+            document.getElementById('professorSection').style.display = 'none';
+        }
+
+        // Funciones para el modal de selección de documentos
+        function openDocumentSelector() {
+            document.getElementById('documentSelectorModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDocumentSelector() {
+            document.getElementById('documentSelectorModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function selectDocument(studentName, documentTitle, date, type) {
+            // Actualizar la información del documento seleccionado
+            document.getElementById('selectedDocumentTitle').textContent = documentTitle;
+            document.getElementById('selectedStudentName').textContent = `Estudiante: ${studentName}`;
+            document.getElementById('selectedDocumentDate').textContent = `Fecha de entrega: ${date}`;
+            document.getElementById('selectedDocumentType').textContent = `Tipo: ${type}`;
+            
+            // Habilitar el botón de descarga
+            document.getElementById('downloadDocumentBtn').disabled = false;
+            
+            // Cambiar el texto del botón de revisar
+            document.getElementById('reviewDocumentBtn').innerHTML = '📖 Cambiar Documento';
+            
+            // Cerrar el modal
+            closeDocumentSelector();
+            
+            // Mostrar mensaje de confirmación
+            alert(`Documento seleccionado: ${documentTitle} de ${studentName}`);
+        }
+
+        // Funciones de filtrado
+        function filterDocuments() {
+            const searchTerm = document.getElementById('studentSearch').value.toLowerCase();
+            const careerFilter = document.getElementById('careerFilter').value;
+            const statusFilter = document.getElementById('statusFilter').value;
+            const typeFilter = document.getElementById('documentTypeFilter').value;
+            
+            const documentItems = document.querySelectorAll('.document-item');
+            
+            documentItems.forEach(item => {
+                const studentName = item.dataset.student.toLowerCase();
+                const career = item.dataset.career;
+                const status = item.dataset.status;
+                const type = item.dataset.type;
+                
+                const matchesSearch = studentName.includes(searchTerm);
+                const matchesCareer = !careerFilter || career === careerFilter;
+                const matchesStatus = !statusFilter || status === statusFilter;
+                const matchesType = !typeFilter || type === typeFilter;
+                
+                if (matchesSearch && matchesCareer && matchesStatus && matchesType) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Event listeners para los filtros
+        document.getElementById('studentSearch').addEventListener('input', filterDocuments);
+        document.getElementById('careerFilter').addEventListener('change', filterDocuments);
+        document.getElementById('statusFilter').addEventListener('change', filterDocuments);
+        document.getElementById('documentTypeFilter').addEventListener('change', filterDocuments);
+
+        // Cerrar modal al hacer clic fuera de él
+        document.getElementById('documentSelectorModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeDocumentSelector();
+            }
+        });
+
+        // Manejo del archivo
+        document.getElementById('document-file').addEventListener('change', function(e) {
+            const filePreview = document.getElementById('filePreview');
+            const fileName = document.getElementById('fileName');
+            const fileSize = document.getElementById('fileSize');
+            
+            if (e.target.files.length > 0) {
+                const file = e.target.files[0];
+                fileName.textContent = file.name;
+                fileSize.textContent = (file.size / 1024 / 1024).toFixed(2) + ' MB';
+                filePreview.style.display = 'block';
+            }
+        });
+
+        function removeFile() {
+            document.getElementById('document-file').value = '';
+            document.getElementById('filePreview').style.display = 'none';
+        }
+
+        // Manejo del formulario de subida
+        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const documentType = formData.get('document-type');
+            const version = formData.get('version');
+            const description = formData.get('description');
+            const file = formData.get('document-file');
+            
+            if (documentType && version && description && file) {
+                alert('Documento enviado exitosamente para revisión');
+                // Aquí iría la lógica para enviar al servidor
+                this.reset();
+                removeFile();
+            }
+        });
+
+        // Manejo del formulario de calificación
+        document.getElementById('gradingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const grade = formData.get('grade');
+            const status = formData.get('status');
+            const feedback = formData.get('feedback');
+            
+            if (grade && status && feedback) {
+                alert('Evaluación enviada exitosamente');
+                // Aquí iría la lógica para enviar al servidor
+                this.reset();
+            }
+        });
+
+        // Drag and drop functionality
+        const uploadArea = document.querySelector('.upload-area');
+        
+        uploadArea.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            this.classList.add('drag-over');
+        });
+        
+        uploadArea.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            this.classList.remove('drag-over');
+        });
+        
+        uploadArea.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.classList.remove('drag-over');
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                document.getElementById('document-file').files = files;
+                document.getElementById('document-file').dispatchEvent(new Event('change'));
+            }
+        });
+    </script>
+    
+</body>
+</html>

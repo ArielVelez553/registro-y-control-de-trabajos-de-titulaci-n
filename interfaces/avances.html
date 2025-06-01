@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avances - Sistema de Registro y Control de Trabajos de Titulación</title>
+    <link rel="stylesheet" href="../css/avances.css">
+</head>
+<body>
+    <!-- Barra superior -->
+    <header class="top-header">
+        <div class="container header-container">
+            <div class="window-controls">
+                <div class="circle red"></div>
+                <div class="circle yellow"></div>
+                <div class="circle green"></div>
+            </div>
+        </div>
+    </header> 
+
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-logo">
+                <img src="../Imagenes/Logouleam.png" alt="ULEAM Logo">
+                <div class="nav-logo-text">
+                    <span class="university-name">Uleam</span>
+                    <span class="university-fullname">ELOY ALFARO DE MANABÍ</span>
+                </div>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="#" class="nav-link">Inicio</a>
+                <a href="#" class="nav-link">Selección de Tema</a>
+                <a href="#" class="nav-link">Registrar Trabajo</a>
+                <a href="#" class="nav-link active">Avances</a>
+                <a href="#" class="nav-link logout">Cerrar Sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Información del proyecto -->
+            <div class="project-header">
+                <div class="project-info">
+                    <h1 class="project-title">Sistema de gestión hospitalaria con inteligencia artificial</h1>
+                    <div class="project-meta">
+                        <span class="meta-item">
+                            <strong>Estudiante:</strong> María González Pérez
+                        </span>
+                        <span class="meta-item">
+                            <strong>Tutor:</strong> Dr. Carlos Mendoza
+                        </span>
+                        <span class="meta-item">
+                            <strong>Carrera:</strong> Ingeniería en Sistemas
+                        </span>
+                    </div>
+                </div>
+                <div class="project-status">
+                    <span class="status-badge in-progress">En Desarrollo</span>
+                    <span class="progress-percentage">60% Completado</span>
+                </div>
+            </div>
+
+            <!-- Resumen de avances -->
+            <div class="progress-summary">
+                <div class="summary-card">
+                    <div class="summary-icon">📊</div>
+                    <div class="summary-content">
+                        <h3>Progreso General</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 60%;"></div>
+                        </div>
+                        <div class="progress-stats">
+                            <span>60% Completado</span>
+                            <span>3 de 5 Etapas</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="summary-icon">📝</div>
+                    <div class="summary-content">
+                        <h3>Documentos Entregados</h3>
+                        <div class="document-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">8</span>
+                                <span class="stat-label">Total</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">6</span>
+                                <span class="stat-label">Aprobados</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">2</span>
+                                <span class="stat-label">Pendientes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="summary-icon">🗓️</div>
+                    <div class="summary-content">
+                        <h3>Próxima Entrega</h3>
+                        <div class="next-deadline">
+                            <p class="deadline-date">15 de Junio, 2025</p>
+                            <p class="deadline-info">Marco Teórico - Versión Final</p>
+                            <div class="countdown">
+                                <span class="countdown-value">12</span>
+                                <span class="countdown-label">días restantes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cronograma de entregas -->
+            <div class="timeline-section">
+                <h2 class="section-title">
+                    <span class="section-icon">📅</span>
+                    Cronograma de Entregas
+                </h2>
+                
+                <div class="timeline-container">
+                    <div class="timeline">
+                        <div class="timeline-item completed">
+                            <div class="timeline-date">
+                                <span class="date">15 Mayo</span>
+                                <span class="year">2025</span>
+                            </div>
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Propuesta Inicial</h3>
+                                <p class="timeline-description">Presentación de la propuesta inicial del proyecto con objetivos y alcance.</p>
+                                <div class="timeline-status">
+                                    <span class="status-badge completed">Completado</span>
+                                    <span class="grade">Calificación: 9.0/10</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item completed">
+                            <div class="timeline-date">
+                                <span class="date">28 Mayo</span>
+                                <span class="year">2025</span>
+                            </div>
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Marco Teórico - Primera Versión</h3>
+                                <p class="timeline-description">Primera versión del marco teórico con referencias bibliográficas iniciales.</p>
+                                <div class="timeline-status">
+                                    <span class="status-badge revision">Requiere Corrección</span>
+                                    <span class="grade">Calificación: 7.5/10</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item current">
+                            <div class="timeline-date">
+                                <span class="date">15 Junio</span>
+                                <span class="year">2025</span>
+                            </div>
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Marco Teórico - Versión Final</h3>
+                                <p class="timeline-description">Versión corregida y ampliada del marco teórico con todas las referencias.</p>
+                                <div class="timeline-status">
+                                    <span class="status-badge pending">En Progreso</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">
+                                <span class="date">15 Julio</span>
+                                <span class="year">2025</span>
+                            </div>
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Metodología y Diseño</h3>
+                                <p class="timeline-description">Metodología detallada y diseño de la solución propuesta.</p>
+                                <div class="timeline-status">
+                                    <span class="status-badge upcoming">Próximamente</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">
+                                <span class="date">15 Agosto</span>
+                                <span class="year">2025</span>
+                            </div>
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Desarrollo e Implementación</h3>
+                                <p class="timeline-description">Desarrollo del sistema y documentación de la implementación.</p>
+                                <div class="timeline-status">
+                                    <span class="status-badge upcoming">Próximamente</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">
+                                <span class="date">15 Oct</span>
+                                <span class="year">2025</span>
+                            </div>
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Documento Final</h3>
+                                <p class="timeline-description">Entrega del documento final completo para revisión.</p>
+                                <div class="timeline-status">
+                                    <span class="status-badge upcoming">Próximamente</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Historial de documentos -->
+            <div class="documents-section">
+                <h2 class="section-title">
+                    <span class="section-icon">📚</span>
+                    Historial de Documentos
+                </h2>
+                
+                <div class="documents-filter">
+                    <div class="filter-group">
+                        <label for="filter-type">Filtrar por tipo:</label>
+                        <select id="filter-type">
+                            <option value="all">Todos los documentos</option>
+                            <option value="propuesta">Propuesta</option>
+                            <option value="marco">Marco Teórico</option>
+                            <option value="metodologia">Metodología</option>
+                            <option value="desarrollo">Desarrollo</option>
+                            <option value="final">Documento Final</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-status">Filtrar por estado:</label>
+                        <select id="filter-status">
+                            <option value="all">Todos los estados</option>
+                            <option value="aprobado">Aprobado</option>
+                            <option value="revision">Requiere Corrección</option>
+                            <option value="pendiente">Pendiente de Revisión</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group search-group">
+                        <input type="text" id="search-docs" placeholder="Buscar documentos...">
+                        <button class="search-btn">🔍</button>
+                    </div>
+                </div>
+                
+                <div class="documents-table-container">
+                    <table class="documents-table">
+                        <thead>
+                            <tr>
+                                <th>Documento</th>
+                                <th>Tipo</th>
+                                <th>Versión</th>
+                                <th>Fecha</th>
+                                <th>Estado</th>
+                                <th>Calificación</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="doc-name">Marco Teórico - Segunda Versión</td>
+                                <td>Marco Teórico</td>
+                                <td>v2.0</td>
+                                <td>28/05/2025</td>
+                                <td><span class="status-pill pending">Pendiente</span></td>
+                                <td>-</td>
+                                <td class="actions-cell">
+                                    <button class="table-action view" title="Ver documento">👁️</button>
+                                    <button class="table-action download" title="Descargar">⬇️</button>
+                                    <button class="table-action feedback" title="Ver comentarios">💬</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="doc-name">Metodología - Primera Versión</td>
+                                <td>Metodología</td>
+                                <td>v1.0</td>
+                                <td>25/05/2025</td>
+                                <td><span class="status-pill review">En Revisión</span></td>
+                                <td>-</td>
+                                <td class="actions-cell">
+                                    <button class="table-action view" title="Ver documento">👁️</button>
+                                    <button class="table-action download" title="Descargar">⬇️</button>
+                                    <button class="table-action feedback" title="Ver comentarios">💬</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="doc-name">Marco Teórico - Primera Versión</td>
+                                <td>Marco Teórico</td>
+                                <td>v1.0</td>
+                                <td>15/05/2025</td>
+                                <td><span class="status-pill revision">Requiere Corrección</span></td>
+                                <td>7.5</td>
+                                <td class="actions-cell">
+                                    <button class="table-action view" title="Ver documento">👁️</button>
+                                    <button class="table-action download" title="Descargar">⬇️</button>
+                                    <button class="table-action feedback" title="Ver comentarios">💬</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="doc-name">Propuesta Inicial del Proyecto</td>
+                                <td>Propuesta</td>
+                                <td>v1.0</td>
+                                <td>01/05/2025</td>
+                                <td><span class="status-pill approved">Aprobado</span></td>
+                                <td>9.0</td>
+                                <td class="actions-cell">
+                                    <button class="table-action view" title="Ver documento">👁️</button>
+                                    <button class="table-action download" title="Descargar">⬇️</button>
+                                    <button class="table-action feedback" title="Ver comentarios">💬</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="pagination">
+                    <button class="pagination-btn" disabled>« Anterior</button>
+                    <div class="pagination-numbers">
+                        <button class="pagination-number active">1</button>
+                        <button class="pagination-number">2</button>
+                        <button class="pagination-number">3</button>
+                    </div>
+                    <button class="pagination-btn">Siguiente »</button>
+                </div>
+            </div>
+
+            <!-- Comentarios y retroalimentación -->
+            <div class="feedback-section">
+                <h2 class="section-title">
+                    <span class="section-icon">💬</span>
+                    Comentarios y Retroalimentación
+                </h2>
+                
+                <div class="feedback-list">
+                    <div class="feedback-item">
+                        <div class="feedback-header">
+                            <div class="feedback-author">
+                                <div class="author-avatar">CM</div>
+                                <div class="author-info">
+                                    <span class="author-name">Dr. Carlos Mendoza</span>
+                                    <span class="author-role">Tutor</span>
+                                </div>
+                            </div>
+                            <div class="feedback-meta">
+                                <span class="feedback-date">28/05/2025</span>
+                                <span class="feedback-document">Marco Teórico - Primera Versión</span>
+                            </div>
+                        </div>
+                        <div class="feedback-content">
+                            <p>El marco teórico presenta una buena estructura general, pero necesita ampliar la sección sobre algoritmos de machine learning aplicados al sector salud. También es importante revisar las referencias bibliográficas según normas APA.</p>
+                            <p>Recomiendo incluir más estudios de caso recientes (últimos 2-3 años) sobre implementaciones similares en hospitales de referencia internacional.</p>
+                        </div>
+                        <div class="feedback-actions">
+                            <button class="feedback-action-btn">Responder</button>
+                            <button class="feedback-action-btn">Ver Documento</button>
+                        </div>
+                    </div>
+                    
+                    <div class="feedback-item">
+                        <div class="feedback-header">
+                            <div class="feedback-author">
+                                <div class="author-avatar">CM</div>
+                                <div class="author-info">
+                                    <span class="author-name">Dr. Carlos Mendoza</span>
+                                    <span class="author-role">Tutor</span>
+                                </div>
+                            </div>
+                            <div class="feedback-meta">
+                                <span class="feedback-date">05/05/2025</span>
+                                <span class="feedback-document">Propuesta Inicial del Proyecto</span>
+                            </div>
+                        </div>
+                        <div class="feedback-content">
+                            <p>Excelente propuesta inicial. Los objetivos están bien definidos y el alcance es adecuado para un trabajo de titulación. La justificación del proyecto es sólida y demuestra la relevancia del tema en el contexto actual.</p>
+                            <p>Para la siguiente fase, enfócate en definir mejor la metodología de desarrollo y las tecnologías específicas a utilizar. Considera incluir un cronograma más detallado de las actividades a realizar.</p>
+                        </div>
+                        <div class="feedback-actions">
+                            <button class="feedback-action-btn">Responder</button>
+                            <button class="feedback-action-btn">Ver Documento</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Área para profesores (visible solo para profesores) -->
+                <div class="professor-feedback-area" id="professorFeedbackArea">
+                    <h3>Añadir Nuevo Comentario</h3>
+                    <form class="feedback-form" id="feedbackForm">
+                        <div class="form-group">
+                            <label for="feedback-document">Documento</label>
+                            <select id="feedback-document" required>
+                                <option value="">Seleccionar documento</option>
+                                <option value="marco-v2">Marco Teórico - Segunda Versión</option>
+                                <option value="metodologia-v1">Metodología - Primera Versión</option>
+                                <option value="marco-v1">Marco Teórico - Primera Versión</option>
+                                <option value="propuesta">Propuesta Inicial del Proyecto</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="feedback-text">Comentario</label>
+                            <textarea id="feedback-text" rows="4" placeholder="Escribe tu comentario o retroalimentación..." required></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="submit-feedback-btn">Enviar Comentario</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="divider"></div>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">Universidad Laica Eloy Alfaro de Manabí</p>
+            <p class="copyright">© 2025 - Todos los derechos reservados</p>
+        </div>
+    </footer>
+       <script src="../js/navegacion.js"></script>
+
+    <script>
+        // Simulación de rol de usuario (cambiar según el usuario logueado)
+        const userRole = 'professor'; // 'student' o 'professor'
+        
+        // Mostrar/ocultar sección de profesor según el rol
+        if (userRole === 'professor') {
+            document.getElementById('professorFeedbackArea').style.display = 'block';
+        } else {
+            document.getElementById('professorFeedbackArea').style.display = 'none';
+        }
+
+        // Manejo del formulario de comentarios
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const document = document.getElementById('feedback-document').value;
+            const comment = document.getElementById('feedback-text').value;
+            
+            if (document && comment) {
+                alert('Comentario enviado exitosamente');
+                // Aquí iría la lógica para enviar al servidor
+                this.reset();
+            }
+        });
+
+        // Filtrado de documentos (simulación)
+        document.getElementById('filter-type').addEventListener('change', function() {
+            console.log('Filtrando por tipo:', this.value);
+            // Aquí iría la lógica de filtrado
+        });
+
+        document.getElementById('filter-status').addEventListener('change', function() {
+            console.log('Filtrando por estado:', this.value);
+            // Aquí iría la lógica de filtrado
+        });
+
+        document.getElementById('search-docs').addEventListener('input', function() {
+            console.log('Buscando:', this.value);
+            // Aquí iría la lógica de búsqueda
+        });
+
+        // Manejo de la paginación
+        document.querySelectorAll('.pagination-number').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelector('.pagination-number.active').classList.remove('active');
+                this.classList.add('active');
+                console.log('Cambiando a página:', this.textContent);
+                // Aquí iría la lógica de paginación
+            });
+        });
+
+        // Acciones de documentos
+        document.querySelectorAll('.table-action').forEach(button => {
+            button.addEventListener('click', function() {
+                const action = this.classList.contains('view') ? 'ver' : 
+                               this.classList.contains('download') ? 'descargar' : 'comentarios';
+                const docName = this.closest('tr').querySelector('.doc-name').textContent;
+                
+                alert(`Acción: ${action} el documento "${docName}"`);
+                // Aquí iría la lógica para cada acción
+            });
+        });
+    </script>
+</body>
+</html>

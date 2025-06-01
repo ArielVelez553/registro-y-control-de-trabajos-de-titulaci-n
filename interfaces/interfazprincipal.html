@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Registro y Control de Trabajos de Titulación</title>
+    <link rel="stylesheet" href="../css/interfazprincipal.css">
+</head>
+<body>
+    <!-- Barra superior -->
+    <header class="top-header">
+        <div class="container header-container">
+            <div class="window-controls">
+                <div class="circle red"></div>
+                <div class="circle yellow"></div>
+                <div class="circle green"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra de navegación con menú completo -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-logo">
+                <img src="../Imagenes/Logouleam.png" alt="ULEAM Logo">
+                <div class="nav-logo-text">
+                    <span class="university-name">Uleam</span>
+                    <span class="university-fullname">ELOY ALFARO DE MANABÍ</span>
+                </div>
+            </div>
+            
+            <!-- Menú de navegación -->
+            <div class="nav-menu">
+                <a href="#" class="nav-link active">Inicio</a>
+                <a href="#" class="nav-link">Selección de Tema</a>
+                <a href="#" class="nav-link">Registrar Trabajo</a>
+                <a href="#" class="nav-link">Avances</a>
+                <a href="#" class="nav-link logout">Cerrar Sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main>
+        <section class="hero-section">
+            <div class="container hero-container">
+                <div class="welcome-text">
+                    <h1>Bienvenido al sistema de Registro y Control de Trabajos de Titulación</h1>
+                    <p class="subtitle">Plataforma integral para la gestión académica de trabajos finales</p>
+                </div>
+                <div class="illustration-container">
+                    <img class="illustration" src="../Imagenes/imagenprincipal.png" alt="Ilustración">
+                </div>
+            </div>
+        </section>
+
+        <!-- Estadísticas -->
+        <section class="stats-section">
+            <div class="container">
+                <h2 class="stats-title">Resumen de Trabajos de Titulación</h2>
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Trabajos Registrados</div>
+                        <div class="stat-description">Total de trabajos en el sistema</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">En Revisión</div>
+                        <div class="stat-description">Proceso de evaluación</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Finalizados</div>
+                        <div class="stat-description">Trabajos completados</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Acciones rápidas -->
+        <section class="quick-actions">
+            <div class="container">
+                <h2 class="section-title">Acciones Rápidas</h2>
+                <div class="actions-grid">
+                    <div class="action-card">
+                        <div class="action-icon">💡</div>
+                        <h3>Selección de Tema</h3>
+                        <p>Propone un nuevo tema de tesis y solicita aprobación del tutor</p>
+                        <button class="action-btn">Proponer Tema</button>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon">📝</div>
+                        <h3>Registrar Trabajo</h3>
+                        <p>Sube documentos y recibe retroalimentación del profesor</p>
+                        <button class="action-btn">Subir Documento</button>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon">📊</div>
+                        <h3>Ver Avances</h3>
+                        <p>Consulta el progreso completo y historial de tu trabajo</p>
+                        <button class="action-btn">Ver Progreso</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="divider"></div>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">Universidad Laica Eloy Alfaro de Manabí</p>
+            <p class="copyright">© 2025 - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+
+   <script src="../js/navegacion.js"></script>
+</body>
+</html>
