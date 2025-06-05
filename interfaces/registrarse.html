@@ -57,8 +57,8 @@
                                 id="firstName" 
                                 name="firstName" 
                                 placeholder="Ingresa tus nombres"
-                                required
                             >
+                            <span class="error-message" id="firstNameError"></span>
                         </div>
                         
                         <div class="form-group">
@@ -68,8 +68,8 @@
                                 id="lastName" 
                                 name="lastName" 
                                 placeholder="Ingresa tus apellidos"
-                                required
                             >
+                            <span class="error-message" id="lastNameError"></span>
                         </div>
                     </div>
                     
@@ -80,8 +80,8 @@
                             id="email" 
                             name="email" 
                             placeholder="Ingresa tu correo electrónico"
-                            required
                         >
+                        <span class="error-message" id="emailError"></span>
                     </div>
                     
                     <div class="form-group">
@@ -91,8 +91,8 @@
                             id="username" 
                             name="username" 
                             placeholder="Crea un nombre de usuario"
-                            required
                         >
+                        <span class="error-message" id="usernameError"></span>
                     </div>
                     
                     <div class="form-row">
@@ -104,12 +104,12 @@
                                     id="password" 
                                     name="password" 
                                     placeholder="Crea una contraseña"
-                                    required
                                 >
                                 <button type="button" class="toggle-password" title="Mostrar/ocultar contraseña">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </div>
+                            <span class="error-message" id="passwordError"></span>
                         </div>
                         
                         <div class="form-group">
@@ -120,31 +120,33 @@
                                     id="confirmPassword" 
                                     name="confirmPassword" 
                                     placeholder="Confirma tu contraseña"
-                                    required
                                 >
                                 <button type="button" class="toggle-password" title="Mostrar/ocultar contraseña">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </div>
+                            <span class="error-message" id="confirmPasswordError"></span>
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="role">Tipo de usuario</label>
-                        <select id="role" name="role" required>
+                        <select id="role" name="role" >
                             <option value="" disabled selected>Selecciona tu rol</option>
                             <option value="student">Estudiante</option>
                             <option value="teacher">Docente</option>
                             <option value="admin">Administrador</option>
                         </select>
+                        <span class="error-message" id="roleError"></span>
                     </div>
                     
                     <div class="form-group checkbox-group">
                         <label class="checkbox-container">
-                            <input type="checkbox" id="terms" name="terms" required>
+                            <input type="checkbox" id="terms" name="terms">
                             <span class="checkmark"></span>
                             Acepto los <a href="#" class="terms-link">términos y condiciones</a> y la <a href="#" class="terms-link">política de privacidad</a>
                         </label>
+                        <span class="error-message" id="termsError"></span>
                     </div>
                     
                     <button type="submit" class="register-btn">
@@ -168,93 +170,105 @@
             <p class="copyright">© 2025 - Todos los derechos reservados</p>
         </div>
     </footer>
-    <script src="../js/navegacion.js"></script>  
+    <script src="../js/navegacion.js"></script> 
     <script>
-        // Funcionalidad para mostrar/ocultar contraseñas
-        document.querySelectorAll('.toggle-password').forEach(button => {
-            button.addEventListener('click', function() {
-                const passwordInput = this.parentElement.querySelector('input');
-                const icon = this.querySelector('i');
+        // Funcionalidad del formulario de registro
+        document.addEventListener('DOMContentLoaded', function() {
+            const registerForm = document.getElementById('registerForm');
+            const togglePasswordButtons = document.querySelectorAll('.toggle-password');
+            
+            // Función para mostrar/ocultar contraseñas
+            togglePasswordButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const input = this.previousElementSibling;
+                    const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                    input.setAttribute('type', type);
+                    
+                    // Cambiar el ícono
+                    const icon = this.querySelector('i');
+                    icon.classList.toggle('fa-eye');
+                    icon.classList.toggle('fa-eye-slash');
+                });
+            });
+            
+            // Validación del formulario
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
                 
-                if (passwordInput.type === 'password') {
-                    passwordInput.type = 'text';
-                    icon.classList.remove('fa-eye');
-                    icon.classList.add('fa-eye-slash');
-                } else {
-                    passwordInput.type = 'password';
-                    icon.classList.remove('fa-eye-slash');
-                    icon.classList.add('fa-eye');
+                // Limpiar mensajes de error previos
+                const errorMessages = document.querySelectorAll('.error-message');
+                errorMessages.forEach(message => {
+                    message.textContent = '';
+                });
+                
+                // Obtener valores de los campos
+                const firstName = document.getElementById('firstName').value.trim();
+                const lastName = document.getElementById('lastName').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const username = document.getElementById('username').value.trim();
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                const role = document.getElementById('role').value;
+                const terms = document.getElementById('terms').checked;
+                
+                // Validar campos requeridos
+                let hasError = false;
+                
+                if (!firstName) {
+                    document.getElementById('firstNameError').textContent = 'Debe ingresar sus nombres';
+                    hasError = true;
+                }
+                
+                if (!lastName) {
+                    document.getElementById('lastNameError').textContent = 'Debe ingresar sus apellidos';
+                    hasError = true;
+                }
+                
+                if (!email) {
+                    document.getElementById('emailError').textContent = 'Debe ingresar un correo electrónico';
+                    hasError = true;
+                }
+                
+                if (!username) {
+                    document.getElementById('usernameError').textContent = 'Debe ingresar un nombre de usuario';
+                    hasError = true;
+                }
+                
+                if (!password) {
+                    document.getElementById('passwordError').textContent = 'Debe ingresar una contraseña';
+                    hasError = true;
+                }
+                
+                if (!confirmPassword) {
+                    document.getElementById('confirmPasswordError').textContent = 'Debe confirmar su contraseña';
+                    hasError = true;
+                } else if (password !== confirmPassword) {
+                    document.getElementById('confirmPasswordError').textContent = 'Las contraseñas no coinciden';
+                    hasError = true;
+                }
+                
+                if (!role) {
+                    document.getElementById('roleError').textContent = 'Debe seleccionar un tipo de usuario';
+                    hasError = true;
+                }
+                
+                if (!terms) {
+                    document.getElementById('termsError').textContent = 'Debe aceptar los términos y condiciones';
+                    hasError = true;
+                }
+                
+                // Si no hay errores, enviar el formulario
+                if (!hasError) {
+                    alert('Registro exitoso. Ahora puedes iniciar sesión con tu cuenta.');
+                    window.location.href = 'iniciarsesion.html';
                 }
             });
-        });
-
-        // Funcionalidad del formulario de registro
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
             
-            // Obtener valores del formulario
-            const firstName = document.getElementById('firstName').value.trim();
-            const lastName = document.getElementById('lastName').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const username = document.getElementById('username').value.trim();
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            const role = document.getElementById('role').value;
-            const termsAccepted = document.getElementById('terms').checked;
-            
-            // Validaciones
-            if (!firstName || !lastName || !email || !username || !password || !confirmPassword || !role) {
-                alert('Por favor, completa todos los campos obligatorios.');
-                return;
-            }
-            
-            if (password !== confirmPassword) {
-                alert('Las contraseñas no coinciden. Por favor, verifica e intenta nuevamente.');
-                return;
-            }
-            
-            if (password.length < 6) {
-                alert('La contraseña debe tener al menos 6 caracteres.');
-                return;
-            }
-            
-            if (!termsAccepted) {
-                alert('Debes aceptar los términos y condiciones para continuar.');
-                return;
-            }
-            
-            // Validación básica de email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Por favor, ingresa un correo electrónico válido.');
-                return;
-            }
-            
-            // Simular registro exitoso
-            alert('¡Cuenta creada exitosamente! Serás redirigido a la página de inicio de sesión.');
-            
-            // Redirigir a la página de inicio de sesión después del registro exitoso
-            setTimeout(() => {
-                window.location.href = 'iniciarsesion.html';
-            }, 1000);
-        });
-
-        // Asegurar que el botón de retroceso funcione correctamente
-        document.querySelector('.back-btn').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.location.href = "../index.html";
-        });
-
-        // Validación en tiempo real de confirmación de contraseña
-        document.getElementById('confirmPassword').addEventListener('input', function() {
-            const password = document.getElementById('password').value;
-            const confirmPassword = this.value;
-            
-            if (confirmPassword && password !== confirmPassword) {
-                this.style.borderColor = '#e74c3c';
-            } else {
-                this.style.borderColor = '';
-            }
+            // Asegurar que el botón de retroceso funcione correctamente
+            document.querySelector('.back-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = "../index.html";
+            });
         });
     </script>
 </body>

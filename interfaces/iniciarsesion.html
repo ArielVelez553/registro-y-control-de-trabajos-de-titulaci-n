@@ -55,8 +55,8 @@
                             id="username" 
                             name="username" 
                             placeholder="Ingresa tu nombre de usuario"
-                            required
                         >
+                        <span class="error-message" id="usernameError"></span>
                     </div>
                     
                     <div class="form-group">
@@ -66,8 +66,8 @@
                             id="password" 
                             name="password" 
                             placeholder="Ingresa tu contraseña"
-                            required
                         >
+                        <span class="error-message" id="passwordError"></span>
                     </div>
                     
                     <div class="form-options">
@@ -106,10 +106,34 @@
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const usernameError = document.getElementById('usernameError');
+            const passwordError = document.getElementById('passwordError');
             
-            // Validación simple de credenciales
+            // Limpiar errores previos
+            usernameError.textContent = '';
+            passwordError.textContent = '';
+            
+            // Validaciones simples
+            let hasError = false;
+            
+            if (!username) {
+                usernameError.textContent = 'Debe ubicar usuario';
+                hasError = true;
+            }
+            
+            if (!password) {
+                passwordError.textContent = 'Debe ubicar contraseña';
+                hasError = true;
+            }
+            
+            // Si hay errores, no continuar
+            if (hasError) {
+                return;
+            }
+            
+            // Validación de credenciales
             if (username === "ariel" && password === "123") {
                 // Credenciales correctas
                 window.location.href = "interfazprincipal.html";

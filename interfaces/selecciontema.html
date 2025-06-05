@@ -39,129 +39,115 @@
         </div>
     </nav>
 
-    
-
     <!-- Contenido principal -->
     <main>
         <div class="container">
             <!-- Encabezado de página -->
             <div class="page-header">
-                <h1 class="page-title">Selección de Tema de Tesis</h1>
-                <p class="page-subtitle">Registra tu propuesta de trabajo de titulación para revisión y aprobación</p>
+                <h1>Selección de Tema de Tesis</h1>
+                <p>Registra tu propuesta de trabajo de titulación para revisión y aprobación</p>
             </div>
 
             <!-- Información importante -->
             <div class="info-banner">
-                <div class="info-icon">🎯</div>
-                <div class="info-content">
-                    <h3>Asignación Automática de Tutor</h3>
-                    <p>Una vez que tu propuesta sea aprobada, se te asignará automáticamente un tutor especializado en tu área de investigación para guiarte durante todo el proceso de desarrollo de tu trabajo de titulación.</p>
-                </div>
+                <h3>Asignación Automática de Tutor</h3>
+                <p>Una vez que tu propuesta sea aprobada, se te asignará automáticamente un tutor especializado en tu área de investigación.</p>
             </div>
 
             <!-- Formulario de propuesta -->
-            <section class="proposal-section">
-                <h2 class="section-title">
-                    <span class="section-icon">📝</span>
-                    Nueva Propuesta de Tema
-                </h2>
+            <section class="card">
+                <h2>Nueva Propuesta de Tema</h2>
                 
-                <form>
+                <form id="propuestaForm">
                     <div class="form-grid">
                         <div class="form-group">
-                            <label class="form-label">Nombre del Estudiante</label>
-                            <input type="text" class="form-input" placeholder="Ingresa tu nombre completo" required>
+                            <label>Nombre del Estudiante</label>
+                            <input type="text" id="nombreEstudiante" placeholder="Ingresa tu nombre completo">
+                            <span class="error-message" id="nombreEstudianteError"></span>
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label">Cédula de Identidad</label>
-                            <input type="text" class="form-input" placeholder="1234567890" required>
+                            <label>Cédula de Identidad</label>
+                            <input type="text" id="cedula" placeholder="1234567890">
+                            <span class="error-message" id="cedulaError"></span>
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label">Carrera Tecnológica</label>
-                            <select class="form-select" required>
+                            <label>Carrera</label>
+                            <select id="carrera">
                                 <option value="">Selecciona tu carrera</option>
-                                <option value="sistemas">Ingeniería en Sistemas Informáticos</option>
-                                <option value="ti">Ingeniería en Tecnologías de la Información</option>
-                                <option value="software">Ingeniería en Software</option>
-                                <option value="redes">Ingeniería en Redes y Telecomunicaciones</option>
-                                <option value="computacion">Ingeniería en Ciencias de la Computación</option>
-                                <option value="ciberseguridad">Ingeniería en Ciberseguridad</option>
-                                <option value="datos">Ingeniería en Ciencia de Datos</option>
-                                <option value="ia">Ingeniería en Inteligencia Artificial</option>
+                                <option value="sistemas">Ing. Sistemas</option>
+                                <option value="ti">Ing. TI</option>
+                                <option value="software">Ing. Software</option>
+                                <option value="redes">Ing. Redes</option>
+                                <option value="ciberseguridad">Ing. Ciberseguridad</option>
                             </select>
+                            <span class="error-message" id="carreraError"></span>
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label">Semestre Actual</label>
-                            <select class="form-select" required>
+                            <label>Semestre Actual</label>
+                            <select id="semestre">
                                 <option value="">Selecciona semestre</option>
                                 <option value="8">Octavo Semestre</option>
                                 <option value="9">Noveno Semestre</option>
                                 <option value="10">Décimo Semestre</option>
                             </select>
+                            <span class="error-message" id="semestreError"></span>
                         </div>
                         
                         <div class="form-group full-width">
-                            <label class="form-label">Título Propuesto del Trabajo</label>
-                            <input type="text" class="form-input" placeholder="Escribe el título de tu propuesta de tesis" required>
+                            <label>Título Propuesto del Trabajo</label>
+                            <input type="text" id="titulo" placeholder="Escribe el título de tu propuesta de tesis">
+                            <span class="error-message" id="tituloError"></span>
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label">Área de Especialización</label>
-                            <select class="form-select" required>
+                            <label>Área de Especialización</label>
+                            <select id="area">
                                 <option value="">Selecciona el área</option>
-                                <option value="desarrollo-web">Desarrollo Web y Aplicaciones</option>
-                                <option value="desarrollo-movil">Desarrollo de Aplicaciones Móviles</option>
-                                <option value="ia-ml">Inteligencia Artificial y Machine Learning</option>
-                                <option value="ciberseguridad">Ciberseguridad y Ethical Hacking</option>
+                                <option value="desarrollo-web">Desarrollo Web</option>
+                                <option value="desarrollo-movil">Desarrollo Móvil</option>
+                                <option value="ia-ml">Inteligencia Artificial</option>
+                                <option value="ciberseguridad">Ciberseguridad</option>
                                 <option value="redes">Redes y Comunicaciones</option>
-                                <option value="bases-datos">Bases de Datos y Big Data</option>
-                                <option value="iot">Internet de las Cosas (IoT)</option>
-                                <option value="blockchain">Blockchain y Criptomonedas</option>
-                                <option value="realidad-virtual">Realidad Virtual y Aumentada</option>
-                                <option value="devops">DevOps y Cloud Computing</option>
+                                <option value="bases-datos">Bases de Datos</option>
                             </select>
+                            <span class="error-message" id="areaError"></span>
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label">Modalidad de Titulación</label>
-                            <select class="form-select" required>
+                            <label>Modalidad de Titulación</label>
+                            <select id="modalidad">
                                 <option value="">Selecciona modalidad</option>
                                 <option value="tesis">Tesis de Investigación</option>
-                                <option value="proyecto">Proyecto de Desarrollo Tecnológico</option>
-                                <option value="sistematizacion">Sistematización de Experiencias Tecnológicas</option>
-                                <option value="propuesta">Propuesta de Solución Tecnológica</option>
+                                <option value="proyecto">Proyecto de Desarrollo</option>
+                                <option value="sistematizacion">Sistematización de Experiencias</option>
+                                <option value="propuesta">Propuesta de Solución</option>
                             </select>
+                            <span class="error-message" id="modalidadError"></span>
                         </div>
                         
                         <div class="form-group full-width">
-                            <label class="form-label">Resumen de la Propuesta</label>
-                            <textarea class="form-textarea" placeholder="Describe brevemente tu propuesta de investigación, objetivos, tecnologías a utilizar y metodología..." required></textarea>
+                            <label>Resumen de la Propuesta</label>
+                            <textarea id="resumen" placeholder="Describe brevemente tu propuesta de investigación..."></textarea>
+                            <span class="error-message" id="resumenError"></span>
                         </div>
                         
                         <div class="form-group full-width">
-                            <label class="form-label">Justificación Tecnológica</label>
-                            <textarea class="form-textarea" placeholder="Explica la importancia tecnológica, el problema que resuelve y el impacto esperado de tu propuesta..." required></textarea>
+                            <label>Justificación Tecnológica</label>
+                            <textarea id="justificacion" placeholder="Explica la importancia tecnológica de tu propuesta..."></textarea>
+                            <span class="error-message" id="justificacionError"></span>
                         </div>
                     </div>
                     
-                    <button type="submit" class="submit-btn">
-                        <span>📤</span>
-                        Enviar Propuesta
-                    </button>
+                    <button type="submit" class="btn primary">Enviar Propuesta</button>
                 </form>
             </section>
 
-            <div class="divider"></div>
-
             <!-- Tabla de propuestas con filtros -->
-            <section class="proposals-table-section">
-                <h2 class="section-title">
-                    <span class="section-icon">📊</span>
-                    Estado de Propuestas Registradas
-                </h2>
+            <section class="card">
+                <h2>Estado de Propuestas Registradas</h2>
                 
                 <!-- Filtros de búsqueda -->
                 <div class="filters-container">
@@ -189,123 +175,76 @@
                 </div>
                 
                 <div class="table-container">
-                    <table class="proposals-table">
+                    <table>
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Estudiante</th>
-                                <th>Título de la Propuesta</th>
+                                <th>Título</th>
                                 <th>Carrera</th>
-                                <th>Fecha de Envío</th>
+                                <th>Fecha</th>
                                 <th>Estado</th>
-                                <th>Tutor Asignado</th>
+                                <th>Tutor</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>PROP-001</td>
-                                <td>María González Pérez</td>
-                                <td>Sistema de gestión hospitalaria con inteligencia artificial</td>
+                                <td>María González</td>
+                                <td>Sistema de gestión hospitalaria con IA</td>
                                 <td>Ing. Sistemas</td>
                                 <td>15/05/2025</td>
-                                <td><span class="status-badge status-approved">Aprobado</span></td>
-                                <td>
-                                    <div class="advisor-info">
-                                        <div class="advisor-name">Dr. Carlos Mendoza</div>
-                                        <div class="advisor-department">Especialista en IA</div>
-                                    </div>
-                                </td>
+                                <td><span class="status approved">Aprobado</span></td>
+                                <td>Dr. Carlos Mendoza</td>
                             </tr>
                             <tr>
                                 <td>PROP-002</td>
-                                <td>Juan Carlos Rodríguez</td>
+                                <td>Juan Rodríguez</td>
                                 <td>Aplicación móvil para monitoreo de redes IoT</td>
                                 <td>Ing. Redes</td>
                                 <td>18/05/2025</td>
-                                <td><span class="status-badge status-reviewing">En Revisión</span></td>
-                                <td>
-                                    <div class="advisor-info">
-                                        <div class="advisor-name">Pendiente</div>
-                                        <div class="advisor-department">-</div>
-                                    </div>
-                                </td>
+                                <td><span class="status reviewing">En Revisión</span></td>
+                                <td>Pendiente</td>
                             </tr>
                             <tr>
                                 <td>PROP-003</td>
-                                <td>Ana Sofía Martínez</td>
-                                <td>Plataforma web de e-learning con realidad virtual</td>
+                                <td>Ana Martínez</td>
+                                <td>Plataforma web de e-learning</td>
                                 <td>Ing. Software</td>
                                 <td>20/05/2025</td>
-                                <td><span class="status-badge status-pending">Pendiente</span></td>
-                                <td>
-                                    <div class="advisor-info">
-                                        <div class="advisor-name">Pendiente</div>
-                                        <div class="advisor-department">-</div>
-                                    </div>
-                                </td>
+                                <td><span class="status pending">Pendiente</span></td>
+                                <td>Pendiente</td>
                             </tr>
                             <tr>
                                 <td>PROP-004</td>
-                                <td>Luis Fernando Torres</td>
-                                <td>Sistema blockchain para votación electrónica</td>
+                                <td>Luis Torres</td>
+                                <td>Sistema blockchain para votación</td>
                                 <td>Ing. TI</td>
                                 <td>22/05/2025</td>
-                                <td><span class="status-badge status-rejected">Rechazado</span></td>
-                                <td>
-                                    <div class="advisor-info">
-                                        <div class="advisor-name">-</div>
-                                        <div class="advisor-department">Requiere reformulación</div>
-                                    </div>
-                                </td>
+                                <td><span class="status rejected">Rechazado</span></td>
+                                <td>-</td>
                             </tr>
                             <tr>
                                 <td>PROP-005</td>
-                                <td>Carmen Elena Vásquez</td>
-                                <td>API REST para gestión de microservicios</td>
+                                <td>Carmen Vásquez</td>
+                                <td>API REST para microservicios</td>
                                 <td>Ing. Software</td>
                                 <td>25/05/2025</td>
-                                <td><span class="status-badge status-approved">Aprobado</span></td>
-                                <td>
-                                    <div class="advisor-info">
-                                        <div class="advisor-name">Dra. Patricia Morales</div>
-                                        <div class="advisor-department">Especialista en Backend</div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>PROP-006</td>
-                                <td>Roberto Andrés Silva</td>
-                                <td>Sistema de ciberseguridad para empresas PYMES</td>
-                                <td>Ing. Ciberseguridad</td>
-                                <td>28/05/2025</td>
-                                <td><span class="status-badge status-reviewing">En Revisión</span></td>
-                                <td>
-                                    <div class="advisor-info">
-                                        <div class="advisor-name">Pendiente</div>
-                                        <div class="advisor-department">-</div>
-                                    </div>
-                                </td>
+                                <td><span class="status approved">Aprobado</span></td>
+                                <td>Dra. Patricia Morales</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </section>
 
-            <div class="divider"></div>
-
             <!-- Sección para profesores -->
-            <section class="professor-section">
-                <h2 class="section-title">
-                    <span class="section-icon">👨‍🏫</span>
-                    Panel del Profesor
-                </h2>
+            <section class="card">
+                <h2>Panel del Profesor</h2>
                 
-                <div class="professor-info-banner">
-                    <div class="info-icon">👋</div>
-                    <div class="info-content">
-                        <h3>Bienvenido, Dr. Carlos Mendoza</h3>
-                        <p>Aquí puede revisar y evaluar las propuestas de temas que le han sido asignadas. Utilice los filtros para encontrar propuestas específicas.</p>
-                    </div>
+                <div class="info-banner">
+                    <h3>Bienvenido, Dr. Carlos Mendoza</h3>
+                    <p>Aquí puede revisar y evaluar las propuestas de temas que le han sido asignadas.</p>
                 </div>
                 
                 <!-- Filtros para profesores -->
@@ -320,6 +259,8 @@
                             <option value="sistemas">Ing. Sistemas</option>
                             <option value="ti">Ing. TI</option>
                             <option value="software">Ing. Software</option>
+                            <option value="redes">Ing. Redes</option>
+                            <option value="ciberseguridad">Ing. Ciberseguridad</option>
                         </select>
                         <select class="filter-select">
                             <option value="">Todos los estados</option>
@@ -329,16 +270,16 @@
                     </div>
                 </div>
                 
-                <!-- Tabla de propuestas asignadas al profesor -->
+                <!-- Tabla de propuestas asignadas -->
                 <div class="table-container">
-                    <table class="proposals-table">
+                    <table>
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Estudiante</th>
-                                <th>Título de la Propuesta</th>
+                                <th>Título</th>
                                 <th>Carrera</th>
-                                <th>Fecha de Envío</th>
+                                <th>Fecha</th>
                                 <th>Estado</th>
                                 <th>Acciones</th>
                             </tr>
@@ -346,41 +287,28 @@
                         <tbody>
                             <tr>
                                 <td>PROP-002</td>
-                                <td>Juan Carlos Rodríguez</td>
-                                <td>Aplicación móvil para monitoreo de redes IoT</td>
+                                <td>Juan Rodríguez</td>
+                                <td>Aplicación móvil para monitoreo IoT</td>
                                 <td>Ing. Redes</td>
                                 <td>18/05/2025</td>
-                                <td><span class="status-badge status-reviewing">En Revisión</span></td>
-                                <td class="actions-cell">
-                                    <button class="action-btn view-btn" title="Ver detalles">👁️</button>
-                                    <button class="action-btn approve-btn" title="Aprobar tema">✅</button>
-                                    <button class="action-btn reject-btn" title="Rechazar tema">❌</button>
+                                <td><span class="status reviewing">En Revisión</span></td>
+                                <td>
+                                    <button class="action-btn">Ver</button>
+                                    <button class="action-btn approve">Aprobar</button>
+                                    <button class="action-btn reject">Rechazar</button>
                                 </td>
                             </tr>
                             <tr>
                                 <td>PROP-003</td>
-                                <td>Ana Sofía Martínez</td>
-                                <td>Plataforma web de e-learning con realidad virtual</td>
+                                <td>Ana Martínez</td>
+                                <td>Plataforma web de e-learning</td>
                                 <td>Ing. Software</td>
                                 <td>20/05/2025</td>
-                                <td><span class="status-badge status-pending">Pendiente</span></td>
-                                <td class="actions-cell">
-                                    <button class="action-btn view-btn" title="Ver detalles">👁️</button>
-                                    <button class="action-btn approve-btn" title="Aprobar tema">✅</button>
-                                    <button class="action-btn reject-btn" title="Rechazar tema">❌</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>PROP-006</td>
-                                <td>Roberto Andrés Silva</td>
-                                <td>Sistema de ciberseguridad para empresas PYMES</td>
-                                <td>Ing. Ciberseguridad</td>
-                                <td>28/05/2025</td>
-                                <td><span class="status-badge status-reviewing">En Revisión</span></td>
-                                <td class="actions-cell">
-                                    <button class="action-btn view-btn" title="Ver detalles">👁️</button>
-                                    <button class="action-btn approve-btn" title="Aprobar tema">✅</button>
-                                    <button class="action-btn reject-btn" title="Rechazar tema">❌</button>
+                                <td><span class="status pending">Pendiente</span></td>
+                                <td>
+                                    <button class="action-btn">Ver</button>
+                                    <button class="action-btn approve">Aprobar</button>
+                                    <button class="action-btn reject">Rechazar</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -389,22 +317,22 @@
                 
                 <!-- Formulario de evaluación -->
                 <div class="evaluation-form">
-                    <h3 class="evaluation-title">Evaluación de Propuesta</h3>
+                    <h3>Evaluación de Propuesta</h3>
                     <div class="selected-proposal">
                         <p><strong>ID:</strong> PROP-002</p>
-                        <p><strong>Título:</strong> Aplicación móvil para monitoreo de redes IoT</p>
-                        <p><strong>Estudiante:</strong> Juan Carlos Rodríguez</p>
+                        <p><strong>Título:</strong> Aplicación móvil para monitoreo IoT</p>
+                        <p><strong>Estudiante:</strong> Juan Rodríguez</p>
                     </div>
                     
-                    <div class="form-group full-width">
-                        <label class="form-label">Comentarios de Evaluación</label>
-                        <textarea class="form-textarea" placeholder="Ingrese sus comentarios sobre la propuesta..."></textarea>
+                    <div class="form-group">
+                        <label>Comentarios de Evaluación</label>
+                        <textarea placeholder="Ingrese sus comentarios..."></textarea>
                     </div>
                     
-                    <div class="evaluation-options">
+                    <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label">Decisión</label>
-                            <select class="form-select">
+                            <label>Decisión</label>
+                            <select>
                                 <option value="">Seleccione una opción</option>
                                 <option value="aprobar">Aprobar Propuesta</option>
                                 <option value="rechazar">Rechazar Propuesta</option>
@@ -413,14 +341,14 @@
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label">Calificación (opcional)</label>
-                            <input type="number" min="0" max="10" step="0.1" class="form-input" placeholder="0.0 - 10.0">
+                            <label>Calificación</label>
+                            <input type="number" min="0" max="10" step="0.1" placeholder="0.0 - 10.0">
                         </div>
                     </div>
                     
                     <div class="form-actions">
-                        <button type="button" class="cancel-btn">Cancelar</button>
-                        <button type="submit" class="submit-evaluation-btn">Enviar Evaluación</button>
+                        <button type="button" class="btn secondary">Cancelar</button>
+                        <button type="submit" class="btn primary">Enviar Evaluación</button>
                     </div>
                 </div>
             </section>
@@ -430,10 +358,92 @@
     <!-- Pie de página -->
     <footer>
         <div class="container">
-            <p class="footer-text">Universidad Laica Eloy Alfaro de Manabí</p>
-            <p class="copyright">© 2025 - Todos los derechos reservados</p>
+            <p>Universidad Laica Eloy Alfaro de Manabí</p>
+            <p>© 2025 - Todos los derechos reservados</p>
         </div>
     </footer>
    <script src="../js/navegacion.js"></script>
+   <script>
+        // Validación del formulario de propuesta
+        document.addEventListener('DOMContentLoaded', function() {
+            const propuestaForm = document.getElementById('propuestaForm');
+            
+            propuestaForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Limpiar mensajes de error previos
+                const errorMessages = document.querySelectorAll('.error-message');
+                errorMessages.forEach(message => {
+                    message.textContent = '';
+                });
+                
+                // Obtener valores de los campos
+                const nombreEstudiante = document.getElementById('nombreEstudiante').value.trim();
+                const cedula = document.getElementById('cedula').value.trim();
+                const carrera = document.getElementById('carrera').value;
+                const semestre = document.getElementById('semestre').value;
+                const titulo = document.getElementById('titulo').value.trim();
+                const area = document.getElementById('area').value;
+                const modalidad = document.getElementById('modalidad').value;
+                const resumen = document.getElementById('resumen').value.trim();
+                const justificacion = document.getElementById('justificacion').value.trim();
+                
+                // Validar campos requeridos
+                let hasError = false;
+                
+                if (!nombreEstudiante) {
+                    document.getElementById('nombreEstudianteError').textContent = 'Debe ingresar el nombre del estudiante';
+                    hasError = true;
+                }
+                
+                if (!cedula) {
+                    document.getElementById('cedulaError').textContent = 'Debe ingresar la cédula de identidad';
+                    hasError = true;
+                }
+                
+                if (!carrera) {
+                    document.getElementById('carreraError').textContent = 'Debe seleccionar una carrera';
+                    hasError = true;
+                }
+                
+                if (!semestre) {
+                    document.getElementById('semestreError').textContent = 'Debe seleccionar el semestre actual';
+                    hasError = true;
+                }
+                
+                if (!titulo) {
+                    document.getElementById('tituloError').textContent = 'Debe ingresar el título propuesto del trabajo';
+                    hasError = true;
+                }
+                
+                if (!area) {
+                    document.getElementById('areaError').textContent = 'Debe seleccionar el área de especialización';
+                    hasError = true;
+                }
+                
+                if (!modalidad) {
+                    document.getElementById('modalidadError').textContent = 'Debe seleccionar la modalidad de titulación';
+                    hasError = true;
+                }
+                
+                if (!resumen) {
+                    document.getElementById('resumenError').textContent = 'Debe ingresar el resumen de la propuesta';
+                    hasError = true;
+                }
+                
+                if (!justificacion) {
+                    document.getElementById('justificacionError').textContent = 'Debe ingresar la justificación tecnológica';
+                    hasError = true;
+                }
+                
+                // Si no hay errores, enviar el formulario
+                if (!hasError) {
+                    alert('Propuesta enviada exitosamente. Será revisada por el comité académico.');
+
+                    propuestaForm.reset();
+                }
+            });
+        });
+   </script>
 </body>
 </html>
